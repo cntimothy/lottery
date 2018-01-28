@@ -7,30 +7,34 @@ namespace WindowsFormsApplication1
 {
     class Individual
     {
-        private string name;
-        private bool isHitted;
-
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
-
-        public bool IsHitted
-        {
-            get { return isHitted; }
-            set { isHitted = value; }
-        }
+        public string Name;
 
         public Individual(string name)
         {
             this.Name = name;
-            this.IsHitted = false;
         }
-        
-        public String dump()
-        { 
-            return Name + ":" + IsHitted;
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        public override bool Equals(object obj)
+        {
+            Individual individual = obj as Individual;
+            if (individual.Name.Equals(this.Name))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Name.GetHashCode();
         }
     }
 }

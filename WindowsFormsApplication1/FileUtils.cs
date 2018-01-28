@@ -10,15 +10,22 @@ namespace WindowsFormsApplication1
     {
         public static List<string> readFile(string path)
         {
-            StreamReader sr = new StreamReader(path);
-            List<string> content = new List<string>();
-            string line;
-            while ((line = sr.ReadLine()) != null) 
+            try
             {
-                content.Add(line);
+                StreamReader sr = new StreamReader(path);
+                List<string> content = new List<string>();
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    content.Add(line);
+                }
+                sr.Close();
+                return content;
             }
-            sr.Close();
-            return content;
+            catch (FileNotFoundException) 
+            {
+                return null;
+            }
         }
 
         public static void writeFile(String path, List<string> content)
