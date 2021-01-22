@@ -76,7 +76,7 @@ namespace WindowsFormsApplication1
                 MessageBox.Show("请选择奖项");
                 return;
             }
-            if (comboBoxGrade.SelectedIndex == -1)
+            if (comboBoxNum.SelectedIndex == -1)
             {
                 MessageBox.Show("请选择数量");
                 return;
